@@ -1,0 +1,17 @@
+﻿
+@model List<controle_estoque.Models.Pedido>
+@{
+    ViewBag.Title = "Pedido";
+}
+
+<h2>Pedido</h2>
+
+<ul>
+    <h2>Cliente</h2>
+    @foreach (var pedido in Model)
+    {
+        <li>@pedido.NumeroNota</li>
+    }
+</ul>
+
+

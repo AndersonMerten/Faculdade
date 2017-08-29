@@ -5,11 +5,9 @@ using System.Web;
 
 namespace controle_estoque.Models
 {
-    public class Produto
+    public class Pedido
     {
-        int id;
-        string nome;
-        string descricao;
-        double preco;
+        public int Id { get; set; }
+        public int NumeroNota { get; set; }
     }
 }

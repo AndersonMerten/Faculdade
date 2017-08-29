@@ -5,11 +5,9 @@ using System.Web;
 
 namespace controle_estoque.Models
 {
-    public class Produto
+    public class Transportador
     {
         int id;
         string nome;
-        string descricao;
-        double preco;
     }
 }

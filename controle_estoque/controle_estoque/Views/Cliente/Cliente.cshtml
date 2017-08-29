@@ -1,0 +1,21 @@
+﻿@model List<controle_estoque.Models.Cliente>
+
+@{
+    ViewBag.Title = "Cliente";
+}
+
+<ul> 
+    <h2>Cliente</h2>
+    <table>
+        @foreach (var cliente in Model)
+        {
+            <tr><td> @Html.ActionLink(cliente.Nome, "Detalhe",
+                new { cliente.Id })</td></tr>
+        }
+
+    </table>
+
+    </ul>
+
+
+
