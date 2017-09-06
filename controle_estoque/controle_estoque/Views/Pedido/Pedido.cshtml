@@ -7,10 +7,11 @@
 <h2>Pedido</h2>
 
 <ul>
-    <h2>Cliente</h2>
+    <h2>Clientes</h2>
     @foreach (var pedido in Model)
     {
-        <li>@pedido.NumeroNota</li>
+        <a>@pedido.NumeroNota</a>
+       
     }
 </ul>
 

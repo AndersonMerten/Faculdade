@@ -194,6 +194,7 @@
     <Content Include="Views\Pedido\Pedido.cshtml" />
     <Content Include="Views\Cliente\Index.cshtml" />
     <Content Include="Views\Cliente\Detalhe.cshtml" />
+    <Content Include="Views\Cliente\Transportador.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

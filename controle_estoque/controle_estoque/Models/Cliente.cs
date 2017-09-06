@@ -9,6 +9,8 @@ namespace controle_estoque.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
+        public string Fone { get; set; }
+        public string Cpf { get; set; }
 
     }
 }

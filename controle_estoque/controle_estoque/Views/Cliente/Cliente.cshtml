@@ -4,18 +4,35 @@
     ViewBag.Title = "Cliente";
 }
 
-<ul> 
-    <h2>Cliente</h2>
-    <table>
-        @foreach (var cliente in Model)
-        {
-            <tr><td> @Html.ActionLink(cliente.Nome, "Detalhe",
-                new { cliente.Id })</td></tr>
-        }
 
+    <table class="table table-hover"> 
+        <caption class="jumbotron">Clientes</caption>
+        <thead> <tr><th>Id</th><th>Nome</th><th>Telefone</th><th>CPF</th></tr></thead>
+        <tbody>
+            @foreach (var cliente in Model)
+            {
+                <tr>
+                    <td>
+                        @cliente.Id
+                    </td>
+                   
+                    <td>
+                        @Html.ActionLink(cliente.Nome, "Detalhe",
+                        new { cliente.Id },
+                        new {@class = "link"})
+                    </td>
+                    <td>
+                        @cliente.Fone
+                    </td>
+                    <td>
+                        @cliente.Cpf
+                    </td>
+
+                </tr>
+            }
+        </tbody>
     </table>
 
-    </ul>
 
 
 

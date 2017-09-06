@@ -11,9 +11,9 @@ namespace controle_estoque.Controllers
     {
         // GET: Cliente
         List<Cliente> clientes = new List<Cliente>() {
-               new Cliente(){Id = 1, Nome = "Anderson" },
-               new Cliente(){Id = 2 , Nome = "Will"},
-               new Cliente(){Id = 3, Nome = "Igor"}
+               new Cliente(){Id = 1, Nome = "Anderson", Cpf="888,888,888-77", Fone="3374-0218" },
+               new Cliente(){Id = 2 , Nome = "Will", Cpf="666,666,666-77", Fone="3374-199"},
+               new Cliente(){Id = 3, Nome = "Igor", Cpf="111,888,111-77", Fone="3333-0218"}
             };
         public ActionResult Cliente()
         {
