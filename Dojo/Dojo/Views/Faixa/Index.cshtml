@@ -1,0 +1,33 @@
+﻿@model List<Dojo.Models.Faixa>
+
+@{
+    ViewBag.Title = "Faixas";
+}
+@if (!Model.Any())
+{
+    <p> Não temos Faixas cadastrados ainda! </p>
+}
+else
+{
+    <table class="table table-hover">
+        <caption class="jumbotron">Faixas</caption>
+        <thead> <tr><th>Nome</th><th>Grau</th></tr></thead>
+        <tbody>
+            @foreach (var faixa in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(faixa.Nome, "Details",
+                        new { faixa.Id },
+                        new { @class = "link" })
+                    </td>
+
+                    <td>
+                        @faixa.Grau
+                    </td>
+                  
+                </tr>
+            }
+        </tbody>
+    </table>
+}

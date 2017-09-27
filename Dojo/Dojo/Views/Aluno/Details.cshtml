@@ -1,0 +1,14 @@
+﻿@model Dojo.Models.Aluno
+
+@{
+ViewBag.Title = "Detalhe do Aluno";
+}
+
+<h1> Detalhe do Aluno </h1>
+
+<ul>
+    <li>Nome: @Model.Nome </li>
+    <li>CPF: @Model.CPF</li>
+    <li>Faixa: @Model.Faixa.Nome</li>
+    <li>Tipo de Associação: @Model.TipoDeAssociacao.Nome</li>
+</ul>

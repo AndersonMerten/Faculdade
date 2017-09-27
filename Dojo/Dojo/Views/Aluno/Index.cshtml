@@ -1,0 +1,42 @@
+﻿@model List<Dojo.Models.Aluno>
+
+@{
+    ViewBag.Title = "Aluno";
+}
+@if (!Model.Any())
+{
+    <p> Não temos alunos cadastrados ainda! </p>
+}
+else
+{
+    <table class="table table-hover">
+        <caption class="jumbotron">Alunos</caption>
+        <thead> <tr><th>Nome</th><th>CPF</th><th>Faixa</th><th>TipoAssociação</th></tr></thead>
+        <tbody>
+            @foreach (var aluno in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(aluno.Nome, "Details",
+                        new { aluno.Id },
+                        new { @class = "link" })
+                    </td>
+
+                    <td>
+                        @aluno.CPF
+                    </td>
+                    <td>
+                        @aluno.Faixa
+                    </td>
+                    <td>
+                        @aluno.TipoDeAssociacao
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+

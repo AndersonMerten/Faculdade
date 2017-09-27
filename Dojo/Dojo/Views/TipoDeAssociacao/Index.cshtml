@@ -1,0 +1,36 @@
+﻿@model List<Dojo.Models.TipoDeAssociacao>
+
+@{
+    ViewBag.Title = "Tipo de Associação";
+}
+@if (!Model.Any())
+{
+    <p> Não temos tipos de associação cadastrados ainda! </p>
+}
+else
+{
+    <table class="table table-hover">
+        <caption class="jumbotron">Tipos de Associação</caption>
+        <thead> <tr><th>Nome</th><th>Periodo</th><th>Mensalidade</th></tr></thead>
+        <tbody>
+            @foreach (var tAssociacao in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(tAssociacao.Nome, "Details",
+                        new { tAssociacao.Id },
+                        new { @class = "link" })
+                    </td>
+
+                    <td>
+                        @tAssociacao.Periodo
+                    </td>
+                    <td>
+                        @tAssociacao.Mensalidade
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
