@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+// Anderson Iago Merten andersonmerten@gmail.com
 namespace Dojo.Models
 {
     public class Faixa

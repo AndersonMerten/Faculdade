@@ -1,10 +1,11 @@
 ﻿using Dojo.Models;
+using System.Data.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+// Anderson Iago Merten andersonmerten@gmail.com
 namespace Dojo.Controllers
 {
     public class AlunoController : Controller
@@ -13,7 +14,7 @@ namespace Dojo.Controllers
         public AlunoController()
         {
             _context = new ApplicationDbContext();
-            _context.TipoDeAssociacoes.Include(a => a.TipoDeAssociacao).ToList();
+            _context.Alunos.Include(a => a.TipoDeAssociacao).ToList();
             _context.Alunos.Include(e => e.Faixa).ToList();
         }
         // GET: Aluno
