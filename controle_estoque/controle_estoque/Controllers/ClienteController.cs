@@ -1,36 +1,109 @@
-﻿using controle_estoque.Models;
-using System;
-using System.Collections.Generic;
+﻿using ControleEstoque.Models;
+using ControleEstoque.ViewModels;
+using System.Data.Entity;
 using System.Linq;
-using System.Web;
+
 using System.Web.Mvc;
 
-namespace controle_estoque.Controllers
+namespace ControleEstoque.Controllers
 {
-    public class ClienteController : Controller
-    {
-        // GET: Cliente
-        List<Cliente> clientes = new List<Cliente>() {
-               new Cliente(){Id = 1, Nome = "Anderson", Cpf="888,888,888-77", Fone="3374-0218" },
-               new Cliente(){Id = 2 , Nome = "Will", Cpf="666,666,666-77", Fone="3374-199"},
-               new Cliente(){Id = 3, Nome = "Igor", Cpf="111,888,111-77", Fone="3333-0218"}
-            };
-        public ActionResult Cliente()
-        {
+      public class ClienteController : Controller
+      {
+            private ApplicationDbContext _context;
+
+            public ClienteController()
+            {
+                  _context = new ApplicationDbContext();
+            }
+
+            public ActionResult Cliente()
+            {
+                  var clientes = _context.Clientes.ToList();
+                  return View(clientes);
+            }
+
+            public ActionResult Index()
+            {
+                  return View();
+            }
+
+            public ActionResult Detalhe(int id)
+            {
+                  var clientes = _context.Clientes.ToList();
+                  return View(clientes.Find(cliente => cliente.Id == id));
+            }
+
+            //CRUD start here:
             
-            return View(clientes);
-        }
+            [HttpPost]
+            public ActionResult Save(Cliente cliente)
+            {
+                  if (cliente.Id == 0)
+                  {
+                        this._context.Clientes.Add(cliente);
+                  }
+                  else
+                  {
+                        this._context.Entry(cliente).State = EntityState.Modified;
+                  }
 
-        public ActionResult Index()
-        {
-            return View();
-        }
+                  this._context.SaveChanges();
 
-        public ActionResult Detalhe(int id)
-        {
-            if (id > clientes.Count) return HttpNotFound();
+                  return RedirectToAction("Cliente");
 
-            return View(clientes.Find(cliente => cliente.Id == id));
-        }
-    }
+            }
+
+            public ActionResult Edit(int id)
+            {
+
+                  var cliente = this._context.Clientes.SingleOrDefault(m => m.Id == id);
+
+                  if (cliente == null)
+                        return HttpNotFound();
+
+
+
+                  var clienteViewModel = new ClienteFormViewModel()
+                  {
+                        Cliente = cliente
+                  };
+
+
+                  return View("FormCliente", clienteViewModel);
+            }
+
+            public ActionResult New()
+            {
+
+                  var clienteViewModel = new ClienteFormViewModel();
+
+                  return View("FormCliente", clienteViewModel);
+
+            }
+            [HttpPost]
+            public ActionResult Delete(int id)
+            {
+                  var cliente = this._context.Clientes.Find(id);
+
+                  if (cliente != null)
+                  {
+
+                        this._context.Clientes.Remove(cliente);
+                        this._context.SaveChanges();
+
+                  }
+
+                  return RedirectToAction("Cliente");
+
+
+            }
+
+
+
+            protected override void Dispose(bool disposing)
+            {
+                  _context.Dispose();
+            }
+      }
 }
+
