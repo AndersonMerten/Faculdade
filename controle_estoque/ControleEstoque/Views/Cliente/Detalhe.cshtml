@@ -7,23 +7,36 @@
     <title></title>
 </head>
 <body>
-    <section class="container">
-        <header class="navbar-header ">
-            <h3>@Model.Nome</h3>
-        </header>
-        <div class="col-xs-12">
-            <div class="col-lg-4">
-                <img src="https://s-media-cache-ak0.pinimg.com/originals/77/42/79/774279d7d0957b362c0b82f33a00f08a.jpg" width="100%" ></img>
+     <div class="container">
+        <h2>Detalhe do cliente:</h2>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>@Model.Nome</h4>
             </div>
-            <div class="text-left col-lg-6">
-                <div><b>Nome:</b> @Model.Nome</div>
-                <div><b>Telefone:</b> @Model.Fone</div>
-                <div><b>CPF:</b> @Model.Cpf</div>
+
+            <div class="panel-body">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                        <img src="https://s-media-cache-ak0.pinimg.com/originals/77/42/79/774279d7d0957b362c0b82f33a00f08a.jpg" width="100%"></img>
+                    </div>
+                    <div class="text-left col-lg-6 col-md-6 col-sm-6">
+                        <div><b>Nome:</b> @Model.Nome</div>
+                        <div><b>Telefone:</b> @Model.Fone</div>
+                        <div><b>CPF:</b> @Model.Cpf</div>
+                    </div>
+            </div>
+            <div class="panel-footer">
+                <a class="btn btn-info" onclick="history.go(-1); return false;" href="#"><i  aria-hidden="true"></i>&nbsp;Voltar</a>
+                <br/><br />
+                 @using (Html.BeginForm("Delete", "Cliente", new { Model.Id }))
+                {
+
+                    <button type="submit" class="btn btn-danger">Deletar Cliente</button>
+
+                }
+
             </div>
         </div>
-        <div class="col-xs-12">
-            <a class="btn btn-danger" onclick="history.go(-1); return false;" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Voltar</a>
-        </div>
-    </section>
+    </div>
 </body>
 </html>
