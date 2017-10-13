@@ -1,0 +1,29 @@
+﻿@model ControleEstoque.Models.Cliente
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <section class="container">
+        <header class="navbar-header ">
+            <h3>@Model.Nome</h3>
+        </header>
+        <div class="col-xs-12">
+            <div class="col-lg-4">
+                <img src="https://s-media-cache-ak0.pinimg.com/originals/77/42/79/774279d7d0957b362c0b82f33a00f08a.jpg" width="100%" ></img>
+            </div>
+            <div class="text-left col-lg-6">
+                <div><b>Nome:</b> @Model.Nome</div>
+                <div><b>Telefone:</b> @Model.Fone</div>
+                <div><b>CPF:</b> @Model.Cpf</div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <a class="btn btn-danger" onclick="history.go(-1); return false;" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Voltar</a>
+        </div>
+    </section>
+</body>
+</html>
