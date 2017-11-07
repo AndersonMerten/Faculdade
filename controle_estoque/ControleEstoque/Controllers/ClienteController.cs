@@ -34,24 +34,42 @@ namespace ControleEstoque.Controllers
             }
 
             //CRUD start here:
-            
+
             [HttpPost]
+            [ValidateAntiForgeryToken]
             public ActionResult Save(Cliente cliente)
             {
+                  if (!ModelState.IsValid)
+                  {
+                        var viewModel = new ClienteFormViewModel
+                        {
+                              Cliente = cliente
+                        };
+                        return View("FormCliente", viewModel);
+                  }
+
                   if (cliente.Id == 0)
                   {
-                        this._context.Clientes.Add(cliente);
+                        _context.Clientes.Add(cliente);
                   }
                   else
                   {
-                        this._context.Entry(cliente).State = EntityState.Modified;
+                        var clienteInDb = _context.Clientes.Single(c => c.Id == cliente.Id);
+
+                        clienteInDb.Nome = cliente.Nome;
+                        clienteInDb.Cpf = cliente.Cpf;
+                        clienteInDb.Fone = cliente.Fone;
+                        clienteInDb.Email = cliente.Email;
+                        clienteInDb.Nascimento = cliente.Nascimento;
+                        clienteInDb.Imagem = cliente.Imagem;
                   }
 
-                  this._context.SaveChanges();
-
+                  // faz a persistência
+                  _context.SaveChanges();
+                  // Voltamos para a lista de clientes
                   return RedirectToAction("Cliente");
-
             }
+
 
             public ActionResult Edit(int id)
             {
@@ -75,7 +93,10 @@ namespace ControleEstoque.Controllers
             public ActionResult New()
             {
 
-                  var clienteViewModel = new ClienteFormViewModel();
+                  var clienteViewModel = new ClienteFormViewModel
+                  {
+                        Cliente = new Cliente()
+                  };
 
                   return View("FormCliente", clienteViewModel);
 

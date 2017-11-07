@@ -11,17 +11,25 @@ namespace ControleEstoque.Controllers
 {
     public class PedidoController : Controller
     {
+            private ApplicationDbContext _context;
+            public PedidoController()
+            {
+                  _context = new ApplicationDbContext();
+            }
 
-        List<Pedido> pedidos = new List<Pedido>() {
-               new Pedido(){Id= 1, NumeroNota = 13246 },
-               new Pedido(){Id = 2 ,NumeroNota = 99999},
-               new Pedido(){Id = 3,  NumeroNota = 91279}
-            };
-        // GET: Pedido
-        public ActionResult Pedido()
+            public ActionResult Pedido()
         {
-
-            return View(pedidos);
-        }
-    }
+                  var produtos = _context.Produtos.ToList();
+                  return View(produtos);
+            }
+            public ActionResult Index()
+            {
+                  return View();
+            }
+      }
 }
+
+
+
+
+

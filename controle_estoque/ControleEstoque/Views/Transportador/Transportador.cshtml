@@ -1,7 +1,58 @@
-﻿
+﻿@model List<ControleEstoque.Models.Transportador>
+
 @{
-    ViewBag.Title = "Transportador";
+      ViewBag.Title = "Transportador";
 }
+@if (!Model.Any())
+{
+    <p> Não temos Transportador cadastrado ainda! </p>
+}
+else
+{
+    <table class="table table-hover">
+        <h1>Transportadors</h1>
+        <header>
+            <h3>
+                <a href=@Url.Action("New", "Transportador") class="btn btn-info pull-lefts">
+                    <i></i>&nbsp;Novo Transportador
+                </a>
+            </h3>
+        </header>
+        <thead> <tr><th>Id</th><th>Nome</th><th>Editar</th><th>Deletar</th></tr></thead>
+        <tbody>
 
-<h2>Transportador</h2>
+            @foreach (var Transportador in Model)
+            {
+                <tr>
+                    <td>
+                        @Transportador.id
+                    </td>
 
+                    <td>
+                        @Html.ActionLink(Transportador.nome, "Detalhe",
+                        new { Transportador.id },
+                        new { @class = "link" })
+                    </td>
+                   
+                    <td>
+                        @Html.ActionLink(
+                    linkText: " Editar Transportador",
+                    actionName: "Edit",
+                    routeValues: new { Transportador.id }, // or to pass some value -> routeValues: new { id = 1 },
+                    htmlAttributes: new { @class = "btn btn-info " }
+                    )
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("Delete", "Transportador", new { Transportador.id }))
+                        {
+
+                            <button type="submit" class="btn btn-danger">Deletar Transportador</button>
+
+                        }
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}

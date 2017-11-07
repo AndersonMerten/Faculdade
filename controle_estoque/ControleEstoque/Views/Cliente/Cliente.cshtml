@@ -16,14 +16,15 @@ else{
                 </a>
             </h3>
         </header>
-        <thead> <tr><th>Id</th><th>Nome</th><th>Telefone</th><th>CPF</th><th>Editar</th><th>Deletar</th></tr></thead>
+        <thead> <tr><th>Imagem</th><th>Nome</th><th>Telefone</th><th>CPF</th><th>Email</th><th>Nascimento</th><th>Editar</th><th>Deletar</th></tr></thead>
         <tbody>
 
             @foreach (var cliente in Model)
             {
                 <tr>
                     <td>
-                        @cliente.Id
+                        <img src=@cliente.Imagem alt="" border=3 height=80px width=80px></img>
+                       
                     </td>
                    
                     <td>
@@ -36,6 +37,12 @@ else{
                     </td>
                     <td>
                         @cliente.Cpf
+                    </td>
+                    <td>
+                        @cliente.Email
+                    </td>
+                    <td>
+                        @cliente.Nascimento.Day /@cliente.Nascimento.Month/ @cliente.Nascimento.Year
                     </td>
                     <td>
                        @Html.ActionLink(

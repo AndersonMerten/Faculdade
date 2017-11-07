@@ -1,34 +1,76 @@
 ﻿@model ControleEstoque.ViewModels.ClienteFormViewModel
 @{
-    ViewBag.Title = Model.Title;
-    Layout = "~/Views/Shared/_Layout.cshtml";
+      ViewBag.Title = Model.Title;
+      Layout = "~/Views/Shared/_Layout.cshtml";
+      var classeHidden = "";
 }
+<div class="panel panel-info">
+    @if (Model.Cliente.Nome == null)
+    {
+        classeHidden = "hidden";
+        <div class="panel-heading">@ViewBag.Title</div>
+    }
+    else
+    {
+        <div class="panel-heading">Editando cliente @Model.Cliente.Nome</div>
+    }
+    <div class="panel-body">
+        <div class="col-lg-2 teste @classeHidden">
+            <img src=@Model.Cliente.Imagem border=3 height=100% width=100%></img>
+        </div>
 
-<h2>@ViewBag.Title</h2>
+        <div class="col-lg-6 teste">
+            @using (Html.BeginForm("Save", "Cliente", FormMethod.Post, new { id = "editaUser" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(m => m.Cliente.Id)
+                <div class="form-group hidden">
+                    @Html.LabelFor(m => m.Cliente.Id)
+                    @Html.TextBoxFor(m => m.Cliente.Id, new { @class = "form-control" })
+                </div>
 
-@using (Html.BeginForm("Save", "Cliente"))
-{
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Cliente.Nome)
+                    @Html.TextBoxFor(m => m.Cliente.Nome, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Cliente.Nome)
+                </div>
 
-    <div class="form-group hidden">
-        @Html.LabelFor(m => m.Cliente.Id)
-        @Html.TextBoxFor(m => m.Cliente.Id, new { @class = "form-control"})
-    </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Cliente.Fone)
+                    @Html.TextBoxFor(m => m.Cliente.Fone, new { @class = "form-control", @type = "Number" })
+                    @Html.ValidationMessageFor(m => m.Cliente.Fone)
+                </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Cliente.Nome)
-        @Html.TextBoxFor(m => m.Cliente.Nome, new { @class = "form-control", @required = "required" })
-    </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Cliente.Cpf)
+                    @Html.TextBoxFor(m => m.Cliente.Cpf, new { @class = "form-control", @type = "Number" })
+                    @Html.ValidationMessageFor(m => m.Cliente.Cpf)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Cliente.Email)
+                    @Html.TextBoxFor(m => m.Cliente.Email, new { @class = "form-control", @type = "email" })
+                    @Html.ValidationMessageFor(m => m.Cliente.Email)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Cliente.Nascimento)
+                    @Html.TextBoxFor(m => m.Cliente.Nascimento, new { @class = "form-control", @type = "date" })
+                    @Html.ValidationMessageFor(m => m.Cliente.Nascimento)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Cliente.Imagem)
+                    @Html.TextBoxFor(m => m.Cliente.Imagem, new { @class = "form-control", @type = "text" })
+                    @Html.ValidationMessageFor(m => m.Cliente.Imagem)
+                </div>
+            }
+            </div>
+         
+        </div>
+            <div class="panel-footer">
+                <button form="editaUser" type="submit" class="btn btn-info"><i aria-hidden="true"></i>&nbsp;Salvar</button>
+                <a class="btn btn-info" onclick="history.go(-1); return false;" href="#"><i aria-hidden="true"></i>&nbsp;Voltar</a>
+            </div>
+          
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Cliente.Fone)
-        @Html.TextBoxFor(m => m.Cliente.Fone, new { @class = "form-control", @required = "required", @maxlength = "12"})
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Cliente.Cpf)
-        @Html.TextBoxFor(m => m.Cliente.Cpf, new { @class = "form-control", @required = "required", @maxlength = "11" })
-    </div>
-    
-    <button type="submit" class="btn btn-danger"><i aria-hidden="true"></i>&nbsp;Salvar</button>
 
-}
+        </div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControleEstoque.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,9 +11,16 @@ namespace ControleEstoque.Controllers
 {
     public class TransportadorController : Controller
     {
-        public ActionResult Transportador()
+            private ApplicationDbContext _context;
+            public TransportadorController()
+            {
+                  _context = new ApplicationDbContext();
+            }
+
+            public ActionResult Transportador()
         {
-            return View();
-        }
+                  var transportadoras = _context.Transportadoras.ToList();
+                  return View(transportadoras);
+            }
     }
 }

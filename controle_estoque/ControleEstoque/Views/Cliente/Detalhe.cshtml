@@ -7,31 +7,42 @@
     <title></title>
 </head>
 <body>
-     <div class="container">
-        <h2>Detalhe do cliente:</h2>
-
+    <br />
+    <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4>@Model.Nome</h4>
             </div>
 
             <div class="panel-body">
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                        <img src="https://s-media-cache-ak0.pinimg.com/originals/77/42/79/774279d7d0957b362c0b82f33a00f08a.jpg" width="100%"></img>
-                    </div>
-                    <div class="text-left col-lg-6 col-md-6 col-sm-6">
-                        <div><b>Nome:</b> @Model.Nome</div>
-                        <div><b>Telefone:</b> @Model.Fone</div>
-                        <div><b>CPF:</b> @Model.Cpf</div>
-                    </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <img src=@Model.Imagem width="100%"></img>
+                </div>
+                <div class="text-left detalhes col-lg-6 col-md-6 col-sm-6">
+                    <h4><b>Detalhes do cliente</b></h4>
+                    <div><b>Nome:</b> @Model.Nome</div>
+                    <div><b>Telefone:</b> @Model.Fone</div>
+                    <div><b>CPF:</b> @Model.Cpf</div>
+                    <div><b>Email:</b> @Model.Email</div>
+                    <div><b>Nascimento:</b> @Model.Nascimento.Day/@Model.Nascimento.Month/@Model.Nascimento.Year</div>
+
+
+
+                </div>
             </div>
             <div class="panel-footer">
-                <a class="btn btn-info" onclick="history.go(-1); return false;" href="#"><i  aria-hidden="true"></i>&nbsp;Voltar</a>
-                <br/><br />
-                 @using (Html.BeginForm("Delete", "Cliente", new { Model.Id }))
+                @using (Html.BeginForm("Delete", "Cliente", new { Model.Id }))
                 {
+                    @Html.ActionLink(
+                     linkText: " Editar Cliente",
+                     actionName: "Edit",
+                     routeValues: new { Model.Id }, // or to pass some value -> routeValues: new { id = 1 },
+                     htmlAttributes: new { @class = "btn btn-info " }
+                     );
 
                     <button type="submit" class="btn btn-danger">Deletar Cliente</button>
+
+                    <a style="float:right" class="btn btn-info" onclick="history.go(-1); return false;" href="#"><i aria-hidden="true"></i>&nbsp;Voltar</a>
 
                 }
 
