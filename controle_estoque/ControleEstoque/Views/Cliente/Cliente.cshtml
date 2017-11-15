@@ -42,7 +42,7 @@ else{
                         @cliente.Email
                     </td>
                     <td>
-                        @cliente.Nascimento.Day /@cliente.Nascimento.Month/ @cliente.Nascimento.Year
+                        @cliente.Nascimento.Value.ToString("dd/MM/yyyy")
                     </td>
                     <td>
                        @Html.ActionLink(
