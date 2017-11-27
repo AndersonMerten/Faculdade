@@ -232,6 +232,10 @@
     <Compile Include="Migrations\201711072203412_teste.Designer.cs">
       <DependentUpon>201711072203412_teste.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711212206226_criaçãoUsuarioDefault.cs" />
+    <Compile Include="Migrations\201711212206226_criaçãoUsuarioDefault.Designer.cs">
+      <DependentUpon>201711212206226_criaçãoUsuarioDefault.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -360,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711072203412_teste.resx">
       <DependentUpon>201711072203412_teste.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711212206226_criaçãoUsuarioDefault.resx">
+      <DependentUpon>201711212206226_criaçãoUsuarioDefault.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

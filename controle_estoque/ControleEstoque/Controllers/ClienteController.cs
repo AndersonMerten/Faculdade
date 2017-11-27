@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace ControleEstoque.Controllers
 {
+      [Authorize]
       public class ClienteController : Controller
       {
             private ApplicationDbContext _context;
