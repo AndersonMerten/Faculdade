@@ -24,8 +24,7 @@ namespace ControleEstoque.Models
             [Required(ErrorMessage = "Digite o valor do e-mail!")]
             [EmailAddress(ErrorMessage = "Digite um e-mail válido")]
             public string Email { get; set; }
-            [Required]
-            
+            [Required]            
             public DateTime? Nascimento { get; set; }            
             [Required]
             public String Imagem { get; set; }

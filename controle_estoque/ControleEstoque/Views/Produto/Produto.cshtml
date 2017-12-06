@@ -6,6 +6,9 @@
 @if (!Model.Any())
 {
     <p> Não temos Produtos cadastrados ainda! </p>
+    <a href=@Url.Action("New", "Produto") class="btn btn-info pull-lefts">
+        <i></i>&nbsp;Novo Produto
+    </a>
 }
 else
 {
@@ -18,37 +21,41 @@ else
                 </a>
             </h3>
         </header>
-        <thead> <tr><th>Id</th><th>Nome</th><th>Telefone</th><th>CPF</th><th>Editar</th><th>Deletar</th></tr></thead>
+        <thead> <tr><th>Foto</th><th>Nome</th><th>Descrição</th><th>Preço</th><th>Estoque</th><th>Editar</th><th>Deletar</th></tr></thead>
         <tbody>
 
-            @foreach (var Produto in Model)
+            @foreach (var produto in Model)
             {
                 <tr>
                     <td>
-                        @Produto.id
+                        <img src=@produto.Foto alt="" border=3 height=80px width=80px></img>
+
                     </td>
 
                     <td>
-                        @Html.ActionLink(Produto.nome, "Detalhe",
-                        new { Produto.id },
+                        @Html.ActionLink(produto.Nome, "Detalhe",
+                        new { produto.Id },
                         new { @class = "link" })
                     </td>
                     <td>
-                        @Produto.descricao
+                        @produto.Descricao
                     </td>
                     <td>
-                        @Produto.preco
+                        @produto.Preco
+                    </td>
+                    <td>
+                        @produto.Estoque
                     </td>
                     <td>
                         @Html.ActionLink(
                     linkText: " Editar Produto",
                     actionName: "Edit",
-                    routeValues: new { Produto.id }, // or to pass some value -> routeValues: new { id = 1 },
+                    routeValues: new { produto.Id }, // or to pass some value -> routeValues: new { id = 1 },
                     htmlAttributes: new { @class = "btn btn-info " }
                     )
                     </td>
                     <td>
-                        @using (Html.BeginForm("Delete", "Produto", new { Produto.id }))
+                        @using (Html.BeginForm("Delete", "Produto", new { produto.Id }))
                         {
 
                             <button type="submit" class="btn btn-danger">Deletar Produto</button>

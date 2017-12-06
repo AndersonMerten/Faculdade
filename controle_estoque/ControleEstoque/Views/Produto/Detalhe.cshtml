@@ -1,4 +1,4 @@
-﻿@model ControleEstoque.Models.Produto
+﻿@model ControleEstoque.Models.Cliente
 <!DOCTYPE html>
 
 <html>
@@ -16,30 +16,31 @@
 
             <div class="panel-body">
                 <div class="col-lg-2 col-md-2 col-sm-2">
-                    <img src=@Model.Foto width="100%"></img>
+                    <img src=@Model.Imagem width="100%"></img>
                 </div>
                 <div class="text-left detalhes col-lg-6 col-md-6 col-sm-6">
-                    <h4><b>Detalhes do produto</b></h4>
+                    <h4><b>Detalhes do cliente</b></h4>
                     <div><b>Nome:</b> @Model.Nome</div>
-                    <div><b>Descrição:</b> @Model.Descricao</div>
-                    <div><b>Valor:</b> R$@Model.Preco</div>
-                    <div><b>Estoque:</b> @Model.Estoque</div>
+                    <div><b>Telefone:</b> @Model.Fone</div>
+                    <div><b>CPF:</b> @Model.Cpf</div>
+                    <div><b>Email:</b> @Model.Email</div>
+                    <div><b>Nascimento:</b> @Model.Nascimento</div>
 
 
 
                 </div>
             </div>
             <div class="panel-footer">
-                @using (Html.BeginForm("Delete", "Produto", new { Model.Id }))
+                @using (Html.BeginForm("Delete", "Cliente", new { Model.Id }))
                 {
                     @Html.ActionLink(
-                     linkText: " Editar Produto",
+                     linkText: " Editar Cliente",
                      actionName: "Edit",
                      routeValues: new { Model.Id }, // or to pass some value -> routeValues: new { id = 1 },
                      htmlAttributes: new { @class = "btn btn-info " }
                      );
 
-                    <button type="submit" class="btn btn-danger">Deletar Produto</button>
+                    <button type="submit" class="btn btn-danger">Deletar Cliente</button>
 
                     <a style="float:right" class="btn btn-info" onclick="history.go(-1); return false;" href="#"><i aria-hidden="true"></i>&nbsp;Voltar</a>
 

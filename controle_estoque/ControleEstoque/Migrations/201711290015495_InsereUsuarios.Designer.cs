@@ -7,13 +7,13 @@ namespace ControleEstoque.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitMigration : IMigrationMetadata
+    public sealed partial class InsereUsuarios : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InsereUsuarios));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709122316180_InitMigration"; }
+            get { return "201711290015495_InsereUsuarios"; }
         }
         
         string IMigrationMetadata.Source

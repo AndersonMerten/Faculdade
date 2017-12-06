@@ -208,33 +208,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709122316180_InitMigration.cs" />
-    <Compile Include="Migrations\201709122316180_InitMigration.Designer.cs">
-      <DependentUpon>201709122316180_InitMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201711290015114_MigrationInicial.cs" />
+    <Compile Include="Migrations\201711290015114_MigrationInicial.Designer.cs">
+      <DependentUpon>201711290015114_MigrationInicial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709122329469_ClientesDefault.cs" />
-    <Compile Include="Migrations\201709122329469_ClientesDefault.Designer.cs">
-      <DependentUpon>201709122329469_ClientesDefault.cs</DependentUpon>
+    <Compile Include="Migrations\201711290015495_InsereUsuarios.cs" />
+    <Compile Include="Migrations\201711290015495_InsereUsuarios.Designer.cs">
+      <DependentUpon>201711290015495_InsereUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710172233493_update-Cliente.cs" />
-    <Compile Include="Migrations\201710172233493_update-Cliente.Designer.cs">
-      <DependentUpon>201710172233493_update-Cliente.cs</DependentUpon>
+    <Compile Include="Migrations\201712052214552_update-pedido.cs" />
+    <Compile Include="Migrations\201712052214552_update-pedido.Designer.cs">
+      <DependentUpon>201712052214552_update-pedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710312231444_adicionadoEmailData.cs" />
-    <Compile Include="Migrations\201710312231444_adicionadoEmailData.Designer.cs">
-      <DependentUpon>201710312231444_adicionadoEmailData.cs</DependentUpon>
+    <Compile Include="Migrations\201712052218227_update-pedido2.cs" />
+    <Compile Include="Migrations\201712052218227_update-pedido2.Designer.cs">
+      <DependentUpon>201712052218227_update-pedido2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711072151409_adicionaImagem.cs" />
-    <Compile Include="Migrations\201711072151409_adicionaImagem.Designer.cs">
-      <DependentUpon>201711072151409_adicionaImagem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711072203412_teste.cs" />
-    <Compile Include="Migrations\201711072203412_teste.Designer.cs">
-      <DependentUpon>201711072203412_teste.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711212206226_criaçãoUsuarioDefault.cs" />
-    <Compile Include="Migrations\201711212206226_criaçãoUsuarioDefault.Designer.cs">
-      <DependentUpon>201711212206226_criaçãoUsuarioDefault.cs</DependentUpon>
+    <Compile Include="Migrations\201712052329568_update-pedido3.cs" />
+    <Compile Include="Migrations\201712052329568_update-pedido3.Designer.cs">
+      <DependentUpon>201712052329568_update-pedido3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -247,7 +239,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ClienteFormViewModel.cs" />
-    <Compile Include="ViewModels\ClienteIndexViewModel.cs" />
+    <Compile Include="ViewModels\PedidoFormViewModel.cs" />
+    <Compile Include="ViewModels\ProdutoFormViewModel.cs" />
+    <Compile Include="ViewModels\TransportadorFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -322,11 +316,15 @@
     <Content Include="Views\Cliente\Cliente.cshtml" />
     <Content Include="Views\Cliente\Detalhe.cshtml" />
     <Content Include="Views\Cliente\Index.cshtml" />
-    <Content Include="Views\Cliente\Transportador.cshtml" />
     <Content Include="Views\Pedido\Pedido.cshtml" />
     <Content Include="Views\Produto\Produto.cshtml" />
     <Content Include="Views\Transportador\Transportador.cshtml" />
     <Content Include="Views\Cliente\FormCliente.cshtml" />
+    <Content Include="Views\Transportador\Detalhe.cshtml" />
+    <Content Include="Views\Transportador\FormTransportador.cshtml" />
+    <Content Include="Views\Produto\Detalhe.cshtml" />
+    <Content Include="Views\Pedido\FormPedido.cshtml" />
+    <Content Include="Views\Pedido\Detalhe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -347,26 +345,20 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709122316180_InitMigration.resx">
-      <DependentUpon>201709122316180_InitMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711290015114_MigrationInicial.resx">
+      <DependentUpon>201711290015114_MigrationInicial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709122329469_ClientesDefault.resx">
-      <DependentUpon>201709122329469_ClientesDefault.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711290015495_InsereUsuarios.resx">
+      <DependentUpon>201711290015495_InsereUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710172233493_update-Cliente.resx">
-      <DependentUpon>201710172233493_update-Cliente.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712052214552_update-pedido.resx">
+      <DependentUpon>201712052214552_update-pedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710312231444_adicionadoEmailData.resx">
-      <DependentUpon>201710312231444_adicionadoEmailData.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712052218227_update-pedido2.resx">
+      <DependentUpon>201712052218227_update-pedido2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711072151409_adicionaImagem.resx">
-      <DependentUpon>201711072151409_adicionaImagem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711072203412_teste.resx">
-      <DependentUpon>201711072203412_teste.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711212206226_criaçãoUsuarioDefault.resx">
-      <DependentUpon>201711212206226_criaçãoUsuarioDefault.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712052329568_update-pedido3.resx">
+      <DependentUpon>201712052329568_update-pedido3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

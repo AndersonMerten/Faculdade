@@ -5,8 +5,12 @@
 }
 @if(!Model.Any()){
     <p> Não temos clientes cadastrados ainda! </p>
+    <a href=@Url.Action("New", "Cliente") class="btn btn-info pull-lefts">
+        <i></i>&nbsp;Novo Cliente
+    </a>
 }
-else{
+else
+{
     <table class="table table-hover"> 
         <h1>Clientes</h1>
         <header>

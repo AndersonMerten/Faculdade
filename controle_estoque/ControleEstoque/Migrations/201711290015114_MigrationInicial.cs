@@ -3,7 +3,7 @@ namespace ControleEstoque.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitMigration : DbMigration
+    public partial class MigrationInicial : DbMigration
     {
         public override void Up()
         {
@@ -12,9 +12,12 @@ namespace ControleEstoque.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Nome = c.String(),
-                        Fone = c.String(),
-                        Cpf = c.String(),
+                        Nome = c.String(nullable: false, maxLength: 100),
+                        Fone = c.String(nullable: false, maxLength: 12),
+                        Cpf = c.String(nullable: false, maxLength: 11),
+                        Email = c.String(nullable: false),
+                        Nascimento = c.DateTime(nullable: false),
+                        Imagem = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -22,12 +25,14 @@ namespace ControleEstoque.Migrations
                 "dbo.Produtos",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
-                        nome = c.String(),
-                        descricao = c.String(),
-                        preco = c.Double(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
+                        Nome = c.String(nullable: false, maxLength: 100),
+                        Descricao = c.String(nullable: false, maxLength: 100),
+                        Preco = c.Double(nullable: false),
+                        Estoque = c.Double(nullable: false),
+                        Foto = c.String(nullable: false),
                     })
-                .PrimaryKey(t => t.id);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -51,6 +56,18 @@ namespace ControleEstoque.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
+            
+            CreateTable(
+                "dbo.Transportadores",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Nome = c.String(nullable: false, maxLength: 100),
+                        Fone = c.String(nullable: false, maxLength: 12),
+                        RegioesAtendidas = c.String(nullable: false),
+                        Logo = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -114,9 +131,10 @@ namespace ControleEstoque.Migrations
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
+            DropTable("dbo.Transportadores");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.Produtoes");
+            DropTable("dbo.Produtos");
             DropTable("dbo.Clientes");
         }
     }

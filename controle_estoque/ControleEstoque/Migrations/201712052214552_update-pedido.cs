@@ -3,7 +3,7 @@ namespace ControleEstoque.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class teste : DbMigration
+    public partial class updatepedido : DbMigration
     {
         public override void Up()
         {

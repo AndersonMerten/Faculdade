@@ -1,4 +1,4 @@
-﻿@model ControleEstoque.Models.Produto
+﻿@model ControleEstoque.Models.Pedido
 <!DOCTYPE html>
 
 <html>
@@ -11,35 +11,31 @@
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>@Model.Nome</h4>
+                <h4>@Model.Id</h4>
             </div>
 
             <div class="panel-body">
-                <div class="col-lg-2 col-md-2 col-sm-2">
-                    <img src=@Model.Foto width="100%"></img>
-                </div>
+
                 <div class="text-left detalhes col-lg-6 col-md-6 col-sm-6">
-                    <h4><b>Detalhes do produto</b></h4>
-                    <div><b>Nome:</b> @Model.Nome</div>
-                    <div><b>Descrição:</b> @Model.Descricao</div>
-                    <div><b>Valor:</b> R$@Model.Preco</div>
-                    <div><b>Estoque:</b> @Model.Estoque</div>
-
-
+                    <h4><b>Detalhes do pedido</b></h4>
+                    <div><b>Nº do pedido:</b> @Model.Id</div>
+                    <div><b>Cliente:</b> @Model.Cliente.Nome</div>
+                    <div><b>Produto comprado:</b> @Model.Produto.Nome</div>
+                    <div><b>Transportadora:</b> @Model.Transportadora.Nome</div>
 
                 </div>
             </div>
             <div class="panel-footer">
-                @using (Html.BeginForm("Delete", "Produto", new { Model.Id }))
+                @using (Html.BeginForm("Delete", "Pedido", new { Model.Id }))
                 {
                     @Html.ActionLink(
-                     linkText: " Editar Produto",
+                     linkText: " Editar Pedido",
                      actionName: "Edit",
                      routeValues: new { Model.Id }, // or to pass some value -> routeValues: new { id = 1 },
                      htmlAttributes: new { @class = "btn btn-info " }
                      );
 
-                    <button type="submit" class="btn btn-danger">Deletar Produto</button>
+                    <button type="submit" class="btn btn-danger">Deletar Pedido</button>
 
                     <a style="float:right" class="btn btn-info" onclick="history.go(-1); return false;" href="#"><i aria-hidden="true"></i>&nbsp;Voltar</a>
 

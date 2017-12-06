@@ -8,7 +8,13 @@ namespace ControleEstoque.Models
     public class Pedido
     {
 
-        public int Id { get; set; }
-        public int NumeroNota { get; set; }
-    }
+            public int Id { get; set; }
+            public Cliente Cliente { get; set; }
+            public int ClienteId { get; set; }
+            public Transportador Transportadora { get; set; }
+            public int TransportadoraId { get; set; }
+            public Produto Produto { get; set; }
+            public int ProdutoId { get; set; }
+
+      }
 }

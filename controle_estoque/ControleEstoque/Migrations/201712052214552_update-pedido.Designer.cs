@@ -7,13 +7,13 @@ namespace ControleEstoque.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ClientesDefault : IMigrationMetadata
+    public sealed partial class updatepedido : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ClientesDefault));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updatepedido));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709122329469_ClientesDefault"; }
+            get { return "201712052214552_update-pedido"; }
         }
         
         string IMigrationMetadata.Source
