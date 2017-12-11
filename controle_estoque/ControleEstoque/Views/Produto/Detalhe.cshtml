@@ -1,4 +1,4 @@
-﻿@model ControleEstoque.Models.Cliente
+﻿@model ControleEstoque.Models.Produto
 <!DOCTYPE html>
 
 <html>
@@ -16,15 +16,15 @@
 
             <div class="panel-body">
                 <div class="col-lg-2 col-md-2 col-sm-2">
-                    <img src=@Model.Imagem width="100%"></img>
+                    <img src=@Model.Foto width="100%"></img>
                 </div>
                 <div class="text-left detalhes col-lg-6 col-md-6 col-sm-6">
-                    <h4><b>Detalhes do cliente</b></h4>
+                    <h4><b>Detalhes do Produto</b></h4>
                     <div><b>Nome:</b> @Model.Nome</div>
-                    <div><b>Telefone:</b> @Model.Fone</div>
-                    <div><b>CPF:</b> @Model.Cpf</div>
-                    <div><b>Email:</b> @Model.Email</div>
-                    <div><b>Nascimento:</b> @Model.Nascimento</div>
+                    <div><b>Descrição:</b> @Model.Descricao</div>
+                    <div><b>Estoque:</b> @Model.Estoque</div>
+                    <div><b>Preço:</b> @Model.Preco</div>
+    
 
 
 
