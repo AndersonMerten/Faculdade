@@ -38,3 +38,9 @@ textarea {
 .teste {
     margin-top:2ch;
 }
+
+footer {
+    padding: 10px;
+    background-color: black;
+    color: gray;
+}
