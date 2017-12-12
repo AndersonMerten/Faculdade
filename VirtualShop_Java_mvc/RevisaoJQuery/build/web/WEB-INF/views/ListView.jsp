@@ -25,76 +25,71 @@
         <!-- Custom styles for this template -->
     </head><!-- /HEAD -->
 
-    <!-- DIV MODAL SAIR -->
-    <div class="modal fade" id="sair-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="modalLabel">Ação: SAIR</h4>
-                </div>
-                <div class="modal-body">Deseja sair do sistema?</div>
-                <div class="modal-footer">
-                    <button id="btnSair" type="button" class="btn btn-primary" onclick="javascript:$('#formSair').submit();">Sim</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
-                </div>
-            </div>
-        </div>
-    </div><!-- /DIV MODAL SAIR-->    
 
     <body>
         <!-- MAIN CONTAINER -->   
         <div id="main" class="container-fluid"> 
 
-            <!-- SIMPLE MENU BAR -->            
-            <div class="row">
-                <div class="col-md-6">
-                    <jsp:include page="../includes/HeaderMenuInclude.jsp" />
+            <!-- menu superior -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="mvcmenu?do=lstmodel">VirtualShop</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="mvccustomer?do=lstmodel">Clientes</a></li>
+                        <li><a href="#">Produtos</a></li>
+                        <li><a href="#">Transportadoras</a></li>
+                        <li><a href="#">Pedidos</a></li>
+                    </ul>
                 </div>
-            </div>
-            <!-- /SIMPLE MENU BAR -->
+            </nav>
+            <!-- menu superior -->
+
 
             <!-- DIV-LIST -->
-            <div id="list" class="row">
+            <div id="list">
                 <!-- SIMPLE GRID... -->
-                <div class="table-responsive col-md-12">
+               
+                <div class="panel panel-default col-lg-10 col-md-10">
+                    <div class="panel-heading row">Listagem de cliente
+                        <div style="float: right;"><a class="btn btn-success" href="${actionToAdd}" title="Adicionar novo">
+                                                Adicionar novo cliente</a></div>
+                    </div>
                     <!-- TABLE -->
-                    <table class="table table-striped" cellspacing="0" cellpadding="0">
-                        <!-- HEADER -->
-                        <thead>
-                            <tr>
-                                <th class="actions">
-                                    &nbsp;&nbsp;Ações
-                                    &nbsp;&nbsp;&nbsp;${listDescriptionLabel}
-                                </th>
-                            </tr>
-                        </thead><!-- /HEADER -->
-                        <!-- DATAGRID-LINES -->
-                        <tbody>
-                            <c:forEach var="o" items="${datasource}">
-                                <tr>
-                                    <td>
-                                        <!-- DESCRIÇÃO PRINCIPAL -->
-                                        <a class="btn btn-primary btn-xs" href="${actionToAdd}" title="ADICIONAR">
-                                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></a>
-                                        <a class="btn btn-warning btn-xs" href="${actionToUpd}${o.id}" title="ATUALIZAR">
-                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                                        <a class="btn btn-success btn-xs" href="mvccustomer?do=read&id=${o.id}" title="VISUALIZAR/APAGAR">
-                                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                        &nbsp;&nbsp;
-                                        <c:if test="${showColumnId == true}">
-                                            <span class="label label-info">${o.id}</span>&nbsp;
-                                        </c:if>    
-                                        ${o.name}
-                                        <!-- /DESCRIÇÃO PRINCIPAL -->
-                                    </td>
+                    <div class="panel-body row">
+                        <table class="table text-center table-responsive table-striped" >
+                            <!-- HEADER -->
+                            <thead >
+                                <tr class="text-center">
+                                    <th class="text-center">Id</th><th class="text-center">Nome</th><th class="text-center">Editar</th><th class="text-center">Visualizar</th><th class="text-center">Apagar</th>
                                 </tr>
-                            </c:forEach>
-                        </tbody><!-- /DATAGRID-LINES -->
+                            </thead><!-- /HEADER -->
+                            <!-- DATAGRID-LINES -->
+                            <tbody>
+                                <c:forEach var="o" items="${datasource}">
+                                    <tr>
+                                        <td>${o.id}</td>
+                                        <td>${o.name}</td>
+                                        <td><a class="btn btn-info" href="${actionToUpd}${o.id}" title="ATUALIZAR">
+                                                Update</a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-info" href="mvccustomer?do=readmodel&id=${o.id}" title="VISUALIZAR">
+                                                Visualizar</a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-danger" href="mvccustomer?do=del&id=${o.id}" title="DELETAR">
+                                                Deletar</a>
+                                        </td>
+                                        </div>
+                                    </tr>
+                                </c:forEach>
+                            </tbody><!-- /DATAGRID-LINES -->
 
-                    </table><!-- /TABLE -->
+                        </table><!-- /TABLE -->
+                    </div>
                 </div>
-                <BR>
             </div><!-- /DIV-LIST -->
 
         </div><!--/MAIN CONTAINER -->
@@ -102,11 +97,6 @@
         <!-- CORE JAVASCRIPT LYBRARIES -->
         <script type="text/javascript" src="assets/core/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="assets/core/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
-        <script>
-            $(document).ready(function () {
-
-            });
-        </script>
         <!-- /CORE JAVASCRIPT LYBRARIES -->
     </body>
 </html>

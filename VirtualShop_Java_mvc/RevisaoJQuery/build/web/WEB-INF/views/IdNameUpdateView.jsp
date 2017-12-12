@@ -26,6 +26,21 @@
     </head><!-- /HEAD -->
 
     <body>    
+         <!-- menu superior -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="mvcmenu?do=lstmodel">VirtualShop</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="mvccustomer?do=lstmodel">Clientes</a></li>
+                    <li><a href="#">Produtos</a></li>
+                    <li><a href="#">Transportadoras</a></li>
+                    <li><a href="#">Pedidos</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- menu superior -->
         <!-- MAIN CONTAINER -->   
         <div id="main" class="container-fluid">
 

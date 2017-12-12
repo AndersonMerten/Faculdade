@@ -3,6 +3,7 @@ package org.ftd.builderforce.ppm.web.cmds;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.ftd.builderforce.ppm.web.adapters.MenuItem;
+import org.ftd.builderforce.ppm.web.adapters.PersistenceFactory;
+import org.ftd.educational.catolica.prog4.daos.UserDAO;
 
 /**
  *
@@ -102,6 +105,9 @@ public class MenuMvcServlet extends HttpServlet {
         String nextAction = "/WEB-INF/views/ReadUserView.jsp";
         String id = this.readParameter(request, "id");
 
+        UserDAO user = new UserDAO(PersistenceFactory.getFactoryInstance());
+        System.out.println("teste");
+        request.setAttribute("datasource", user.findUser(Long.parseLong(id)));
         return nextAction;
     }
 

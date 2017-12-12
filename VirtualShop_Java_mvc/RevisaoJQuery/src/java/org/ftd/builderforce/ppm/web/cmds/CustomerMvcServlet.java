@@ -10,8 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.ftd.builderforce.ppm.web.adapters.PersistenceFactory;
 import org.ftd.educational.catolica.prog4.daos.ClienteDAO;
+import org.ftd.educational.catolica.prog4.daos.UserDAO;
 import org.ftd.educational.catolica.prog4.entities.Cliente;
+import org.ftd.educational.catolica.prog4.entities.User;
 
 /**
  *
@@ -120,9 +123,11 @@ public class CustomerMvcServlet extends HttpServlet {
     }
 
     private String buildReadModel(HttpServletRequest request, HttpServletResponse response) {
-        String nextAction = "/WEB-INF/views/ReadUserView.jsp";
+         String nextAction = "/WEB-INF/views/ReadUserView.jsp";
         String id = this.readParameter(request, "id");
 
+        ClienteDAO cliente = new ClienteDAO(PersistenceFactory.getFactoryInstance());
+        request.setAttribute("datasource", cliente.findCliente(Long.parseLong(id)));
         return nextAction;
     }
 
@@ -175,8 +180,14 @@ public class CustomerMvcServlet extends HttpServlet {
 
     private String doRemove(HttpServletRequest request, HttpServletResponse response) {
         String id = this.readParameter(request, "id");
-        String successNextAction = "user?do=lstmodel";
-        String failureNextAction = "user?do=readmodel&id=" + id;
+        ClienteDAO cliente = new ClienteDAO(PersistenceFactory.getFactoryInstance());
+        request.setAttribute("datasource", cliente.findCliente(Long.parseLong(id)));
+        try{
+            cliente.destroy(Long.parseLong(id));
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        String successNextAction = "mvccustomer?do=lstmodel";
 
         return successNextAction;
     }

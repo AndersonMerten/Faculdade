@@ -5335,3 +5335,9 @@ ul.notifications {
   width: 100%;
   height: 2px;
 }
+
+label{
+   float: left;
+   clear: left;
+   display: block;
+}

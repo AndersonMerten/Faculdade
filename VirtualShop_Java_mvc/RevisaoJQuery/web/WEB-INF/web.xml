@@ -8,4 +8,13 @@
     <welcome-file-list>
         <welcome-file>SignIn.jsp</welcome-file>
     </welcome-file-list>
+    <servlet>
+        <servlet-name>MenuMvcServlet</servlet-name>
+        <servlet-class>org.ftd.builderforce.ppm.web.cmds.MenuMvcServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+         <servlet-name>MenuMvcServlet</servlet-name>
+         <url-pattern>/mvcmenu</url-pattern>
+    </servlet-mapping>
+    
 </web-app>

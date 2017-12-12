@@ -20,11 +20,11 @@
     </head><!-- /HEAD -->
     <body>
         <!-- MAIN CONTAINER -->   
-        
+        <!-- menu superior -->
         <nav class="navbar navbar-default">
             <div class="container-fluid">
               <div class="navbar-header">
-                <a class="navbar-brand" href="#">VirtualShop</a>
+                <a class="navbar-brand" href="mvcmenu?do=lstmodel">VirtualShop</a>
               </div>
               <ul class="nav navbar-nav">
                 <li><a href="mvccustomer?do=lstmodel">Clientes</a></li>
@@ -34,6 +34,7 @@
               </ul>
             </div>
         </nav>
+         <!-- menu superior -->
         <div id="main" class="container-fluid"> 
 
             <!-- SIMPLE MENU BAR -->            

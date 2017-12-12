@@ -26,6 +26,21 @@
     </head><!-- /HEAD -->
 
     <body>    
+                    <!-- menu superior -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="mvcmenu?do=lstmodel">VirtualShop</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="mvccustomer?do=lstmodel">Clientes</a></li>
+                        <li><a href="#">Produtos</a></li>
+                        <li><a href="#">Transportadoras</a></li>
+                        <li><a href="#">Pedidos</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- menu superior -->
         <!-- MAIN CONTAINER -->   
         <div id="main" class="container-fluid">
 
@@ -47,17 +62,7 @@
                    
                 </div><!-- /LINHA-1 -->           
 
-                <!-- LINHA-2 -->
-                <div class="row">
-                    <div class="form-group col-md-2">
-                        <label for="systemCombo">Sistema?</label>                        
-                        <!-- COMBOBOX SISTEMA -->
-                        <SELECT id="systemCombo" name="systemCombo" size="1" class="form-control">
-                            <option value="true">Sim</option> 
-                            <option value="false">Não</option> 
-                        </SELECT><!-- /COMBOBOX SISTEMA -->   
-                    </div> 
-                </div><!-- /LINHA-2 -->                   
+                            
 
                 <!-- LINHA-3 : BUTTONS SAVE AND CANCEL -->
                 <div class="row">
