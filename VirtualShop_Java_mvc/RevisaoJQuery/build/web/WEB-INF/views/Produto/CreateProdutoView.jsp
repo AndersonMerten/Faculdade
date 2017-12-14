@@ -1,7 +1,7 @@
 <%-- 
-    Document   : IdNameCreateView.jsp
-    Created on : 31/08/2017
-    Author     : Fabio Tavares Dippold
+    Document   : CreateProdutoView
+    Created on : Dec 13, 2017, 11:10:53 PM
+    Author     : Anderson
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,7 +34,7 @@
                     </div>
                     <ul class="nav navbar-nav">
                         <li><a href="mvccustomer?do=lstmodel">Clientes</a></li>
-                        <li><a href="#">Produtos</a></li>
+                        <li class="active"><a href="#">Produtos</a></li>
                         <li><a href="#">Transportadoras</a></li>
                         <li><a href="#">Pedidos</a></li>
                     </ul>
@@ -52,16 +52,28 @@
             <form id="formCreate" name="formCreate" method="POST" action="${controller}">
                 <input type="hidden" id="do" name="do" value="${do}">
 
-                <!-- LINHA-1 -->
+                <!-- /LINHA-2 -->  
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="nameInput">${fieldNameLabel}:</label>
-                        <input type="text" class="form-control" id="nameInput" name="nameInput" max="100" required="required" placeholder="Chave de configuração">
-                        <span id="contadorInputName" class="label label-warning">100 Restantes!</span>
-                    </div>
+                        <input type="text" class="form-control" id="nameInput" name="nameInput" max="100" required="required" placeholder="Nome do produto">
+                      </div>
                    
-                </div><!-- /LINHA-1 -->           
-
+                </div>
+                <!-- /LINHA-3 -->     
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="descricaoInput">Descrição:</label>
+                        <input type="text" class="form-control" id="descricaoInput" name="descricaoInput" max="100" required="required" placeholder="Breve descrição">
+                      </div>                   
+                </div>
+                <!-- /LINHA-4 -->     
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="precoInput">Preço:</label>
+                        <input type="text" class="form-control" id="precoInput" name="precoInput" max="10" required="required" placeholder="Valor do produto">
+                      </div>                   
+                </div>
                             
 
                 <!-- LINHA-3 : BUTTONS SAVE AND CANCEL -->
@@ -73,10 +85,6 @@
                 </div><!-- /LINHA-3 -->
                 <br><br>
             </form><!-- /FORM MAIN -->
-
-            <!-- MESSAGE BAR -->
-            <jsp:include page="../includes/FooterMessageBarInclude.jsp" /> 
-            <!-- /MESSAGE BAR -->
 
         </div> <!--/MAIN CONTAINER -->        
         <!-- CORE JAVASCRIPT LYBRARIES...

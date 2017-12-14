@@ -1,3 +1,9 @@
+<%-- 
+    Document   : ReadProdutoView
+    Created on : Dec 14, 2017, 12:03:05 AM
+    Author     : Anderson
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -7,11 +13,11 @@
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="${applicationName}">
+        <meta name="description" content="Virtual Shop">
         <meta name="author" content="Anderson Iago Merten">
 
         <link rel="icon" href="assets/icons/qb-icon.png">
-        <title>${applicationName} -  ${tittle}</title>
+        <title>Virtual Shop - Visualizar Produto</title>
 
         <!-- Bootstrap -->
         <link href="assets/css/custom.css" rel="stylesheet">
@@ -37,15 +43,16 @@
         <!-- menu superior -->
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3>Dados do cliente</h3>
+                <h3>Dados do Produto</h3>
             </div>
             <div class="panel-body">
                 <label>Id: ${datasource.id}</label>
                 <label>Nome: ${datasource.name}</label>
-                <label>CPF: ${datasource.cpf}</label>
+                <label>Descrição: ${datasource.descricao}</label>
+                <label>Preço: ${datasource.price}</label>
             </div>
             <div class="panel-footer">
-                <a class="btn btn-info" href="mvccustomer?do=lstmodel" title="VISUALIZAR">
+                <a class="btn btn-info" href="mvcproduto?do=lstmodel" title="VISUALIZAR">
                                                 Voltar</a>
             </div>
         </div>

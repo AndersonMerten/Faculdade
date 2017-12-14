@@ -5,9 +5,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import org.ftd.educational.catolica.prog4.daos.ClienteDAO;
 import org.ftd.educational.catolica.prog4.daos.FornecedorDAO;
+import org.ftd.educational.catolica.prog4.daos.ProdutoDAO;
 import org.ftd.educational.catolica.prog4.daos.TipoClienteDAO;
 import org.ftd.educational.catolica.prog4.daos.UserDAO;
 import org.ftd.educational.catolica.prog4.entities.Cliente;
+import org.ftd.educational.catolica.prog4.entities.Produto;
 import org.ftd.educational.catolica.prog4.entities.TipoCliente;
 import org.ftd.educational.catolica.prog4.entities.User;
 
@@ -24,7 +26,8 @@ public class Init {
         userAuthenticateTest("prost3@gmail.com", "sennaviadinho@soutetracampeao"); 
         
         findAllUser();
-        System.out.println(listarCliente());        
+        System.out.println(listarCliente());  
+        createDefaultProduto();
         
         
 //                Fornecedor o = new Fornecedor();
@@ -104,23 +107,41 @@ public class Init {
         }
 
     }
+    private static void createDefaultProduto() {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        ProdutoDAO produtoDAO = new ProdutoDAO(factory);
+        String[][] lst
+                = {
+                    {"123", "Goiaba", "Ruim demais", "2"},
+                    {"124", "Maça", "Ruim", "5"},
+                    {"125", "Nozes", "caro", "200"}
+                };
+
+        for (int i = 0; i < lst.length; i++) {
+            Produto o = new Produto();
+            o.setId(Long.parseLong(lst[i][0]));
+            o.setName(lst[i][1]);
+            o.setDescricao(lst[i][2]);
+            o.setPrice(Long.parseLong(lst[i][3]));
+            produtoDAO.create(o);
+        }
+
+    }
 
     private static String listarCliente() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-        ClienteDAO dao = new ClienteDAO(factory);
-        TipoClienteDAO tipoClienteDAO = new TipoClienteDAO(factory);
+        ProdutoDAO dao = new ProdutoDAO(factory);
         StringBuilder sb = new StringBuilder();
-        List<Cliente> lst = dao.findClienteEntities();
+        List<Produto> lst = dao.findProdutoEntities();
 
-        for (Cliente o : lst) {
-            TipoCliente tipoCliente = tipoClienteDAO.findTipoCliente(o.getTipoClienteid());
+        for (Produto o : lst) {
             sb.append(o.getId());
             sb.append(" - ");
             sb.append(o.getName());
             sb.append(" - ");
-            sb.append(o.getTipoClienteid());
+            sb.append(o.getDescricao());
             sb.append(" (");
-            sb.append(tipoCliente.getName());
+            sb.append(o.getPrice());
             sb.append(")\n");
         }
 

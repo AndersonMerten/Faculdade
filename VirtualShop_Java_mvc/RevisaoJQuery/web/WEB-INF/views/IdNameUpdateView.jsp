@@ -15,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <meta name="description" content="${applicationName}">
-        <meta name="author" content="Fábio Tavares Dippold">
+        <meta name="author" content="Anderson Iago Merten">
         <link rel="icon" href="assets/icons/qb-icon.png">
         <title>${applicationName} - ${title}</title>
         <!-- Bootstrap -->

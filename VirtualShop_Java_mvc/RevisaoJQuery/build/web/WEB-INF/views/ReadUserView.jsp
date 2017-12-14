@@ -28,21 +28,25 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="mvccustomer?do=lstmodel">Clientes</a></li>
-                    <li><a href="#">Produtos</a></li>
+                    <li><a href="mvcproduto?do=lstmodel">Produtos</a></li>
                     <li><a href="#">Transportadoras</a></li>
                     <li><a href="#">Pedidos</a></li>
                 </ul>
             </div>
         </nav>
         <!-- menu superior -->
-        <div class="panel panel-info">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3>Dados do cliente</h3>
             </div>
             <div class="panel-body">
-                <label>Id: <input placeholder="${datasource.id}"></label>
-                <label>Nome:<input placeholder="${datasource.name}"></label>
-                <label>CPF: <input placeholder="${datasource.cpf}"></label>
+                <label>Id: ${datasource.id}</label>
+                <label>Nome: ${datasource.name}</label>
+                <label>CPF: ${datasource.cpf}</label>
+            </div>
+            <div class="panel-footer">
+                <a class="btn btn-info" href="mvccustomer?do=lstmodel" title="VISUALIZAR">
+                                                Voltar</a>
             </div>
         </div>
 

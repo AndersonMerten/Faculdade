@@ -1,7 +1,7 @@
 <%-- 
-    Document   : IdNameCreateView.jsp
-    Created on : 31/08/2017
-    Author     : Fabio Tavares Dippold
+    Document   : UpdateProdutoView
+    Created on : Dec 13, 2017, 11:38:23 PM
+    Author     : Anderson
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -26,43 +26,57 @@
     </head><!-- /HEAD -->
 
     <body>    
-                    <!-- menu superior -->
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="mvcmenu?do=lstmodel">VirtualShop</a>
-                    </div>
-                    <ul class="nav navbar-nav">
-                        <li><a href="mvccustomer?do=lstmodel">Clientes</a></li>
-                        <li><a href="#">Produtos</a></li>
-                        <li><a href="#">Transportadoras</a></li>
-                        <li><a href="#">Pedidos</a></li>
-                    </ul>
+         <!-- menu superior -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="mvcmenu?do=lstmodel">VirtualShop</a>
                 </div>
-            </nav>
-            <!-- menu superior -->
+                <ul class="nav navbar-nav">
+                    <li><a href="mvccustomer?do=lstmodel">Clientes</a></li>
+                    <li><a href="mvcproduto?do=lstmodel">Produtos</a></li>
+                    <li><a href="#">Transportadoras</a></li>
+                    <li><a href="#">Pedidos</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- menu superior -->
         <!-- MAIN CONTAINER -->   
         <div id="main" class="container-fluid">
 
             <div class="row">
                 <div class="col-md-6"><h2>${title}</h2></div>
             </div>
-
             <!-- FORM MAIN -->
-            <form id="formCreate" name="formCreate" method="POST" action="${controller}">
+            <form id="formCreate" name="formCreate" method="POST" action="mvcproduto">
                 <input type="hidden" id="do" name="do" value="${do}">
+                <input type="hidden" id="id" name="id" value="${entity.id}">
 
                 <!-- LINHA-1 -->
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="nameInput">${fieldNameLabel}:</label>
-                        <input type="text" class="form-control" id="nameInput" name="nameInput" max="100" required="required" placeholder="Chave de configuração">
-                        <span id="contadorInputName" class="label label-warning">100 Restantes!</span>
-                    </div>
+                        <input type="text" class="form-control" id="nameInput" name="nameInput" max="100" required="required" placeholder="Nome do produto"
+                               value = ${entity.name}>
+                      </div>
                    
-                </div><!-- /LINHA-1 -->           
-
-                            
+                </div>
+                <!-- /LINHA-3 -->     
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="descricaoInput">Descrição:</label>
+                        <input type="text" class="form-control" id="descricaoInput" name="descricaoInput" max="100" required="required" placeholder="Breve descrição"
+                               value = ${entity.descricao}>
+                      </div>                   
+                </div>
+                <!-- /LINHA-4 -->     
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="precoInput">Preço:</label>
+                        <input type="text" class="form-control" id="precoInput" name="precoInput" max="10" required="required" placeholder="Valor do produto"
+                               value = ${entity.price}>
+                      </div>                   
+                </div>                         
 
                 <!-- LINHA-3 : BUTTONS SAVE AND CANCEL -->
                 <div class="row">
@@ -75,7 +89,7 @@
             </form><!-- /FORM MAIN -->
 
             <!-- MESSAGE BAR -->
-            <jsp:include page="../includes/FooterMessageBarInclude.jsp" /> 
+         
             <!-- /MESSAGE BAR -->
 
         </div> <!--/MAIN CONTAINER -->        

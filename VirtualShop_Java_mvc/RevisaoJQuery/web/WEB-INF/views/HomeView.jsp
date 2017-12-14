@@ -28,7 +28,7 @@
               </div>
               <ul class="nav navbar-nav">
                 <li><a href="mvccustomer?do=lstmodel">Clientes</a></li>
-                <li><a href="#">Produtos</a></li>
+                <li><a href="mvcproduto?do=lstmodel">Produtos</a></li>
                 <li><a href="#">Transportadoras</a></li>
                 <li><a href="#">Pedidos</a></li>
               </ul>
