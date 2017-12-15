@@ -1,7 +1,7 @@
 <%-- 
-    Document   : IdNameUpdateView.jsp
-    Created on : 31/08/2017
-    Author     : Fabio Tavares Dippold
+    Document   : CreateProdutoView
+    Created on : Dec 13, 2017, 11:10:53 PM
+    Author     : Anderson
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,39 +10,37 @@
 <html lang="pt-BR">
     <!-- HEAD -->
     <head>
-         <meta charset="utf-8">
+        <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Virtual Shop">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="${applicationName}">
         <meta name="author" content="Anderson Iago Merten">
-
         <link rel="icon" href="assets/icons/qb-icon.png">
-        <title>Virtual Shop - Visualizar Produto</title>
-
+        <title>${applicationName} - ${title}</title>
         <!-- Bootstrap -->
-        <link href="assets/css/custom.css" rel="stylesheet">
         <link href="assets/core/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap theme -->
         <link href="assets/core/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
     </head><!-- /HEAD -->
 
     <body>    
-         <!-- menu superior -->
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="mvcmenu?do=lstmodel">VirtualShop</a>
-                </div>
-                
-                <ul class="nav navbar-nav">
-                        <li class="active"><a href="mvccustomer?do=lstmodel">Clientes</a></li>
-                        <li><a href="mvcproduto?do=lstmodel">Produtos</a></li>
-                        <li><a href="mvctransportador?do=lstmodel">Transportadoras</a></li>
+                    <!-- menu superior -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="mvcmenu?do=lstmodel">VirtualShop</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                         <li><a href="mvccustomer?do=lstmodel">Clientes</a></li>
+                        <li ><a href="mvcproduto?do=lstmodel">Produtos</a></li>
+                        <li class="active"><a href="mvctransportador?do=lstmodel">Transportadoras</a></li>
                         <li><a href="#">Pedidos</a></li>
-                </ul>
-            </div>
-        </nav>
-        <!-- menu superior -->
+                    </ul>
+                </div>
+            </nav>
+            <!-- menu superior -->
         <!-- MAIN CONTAINER -->   
         <div id="main" class="container-fluid">
 
@@ -53,26 +51,24 @@
             <!-- FORM MAIN -->
             <form id="formCreate" name="formCreate" method="POST" action="${controller}">
                 <input type="hidden" id="do" name="do" value="${do}">
-                <input type="hidden" id="id" name="id" value="${entity.id}">
 
-                <!-- LINHA-1 -->
+                <!-- /LINHA-2 -->  
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="nameInput">${fieldNameLabel}:</label>
-                        <input type="text" class="form-control" id="nameInput" name="nameInput" max="100" required="required" placeholder="Nome do usuário"
-                               value="${entity.name}">
-                        <span id="contadorInputName" class="label label-warning">100 Restantes!</span>
-                    </div>                  
+                        <input type="text" class="form-control" id="nameInput" name="nameInput" max="100" required="required" placeholder="Nome do transportador">
+                      </div>
+                   
                 </div>
-                        <!-- /LINHA-2 -->    
-                                <div class="row">
+                <!-- /LINHA-3 -->     
+                <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="cpfInput">${entity.cpf}:</label>
-                        <input type="text" class="form-control" id="nameInput" name="cpfInput" max="100" required="required" placeholder="CPF do Usuário"
-                               value="${entity.cpf}">
-                        <span id="contadorInputName" class="label label-warning">100 Restantes!</span>
-                    </div>                  
-                </div> 
+                        <label for="descricaoInput">CNPJ: </label>
+                        <input type="text" class="form-control" id="descricaoInput" name="descricaoInput" max="100" required="required" placeholder="CNPJ da empresa">
+                      </div>                   
+                </div>
+                <!-- /LINHA-4 -->     
+                           
 
                 <!-- LINHA-3 : BUTTONS SAVE AND CANCEL -->
                 <div class="row">
@@ -83,10 +79,6 @@
                 </div><!-- /LINHA-3 -->
                 <br><br>
             </form><!-- /FORM MAIN -->
-
-            <!-- MESSAGE BAR -->
-            <jsp:include page="../includes/FooterMessageBarInclude.jsp" /> 
-            <!-- /MESSAGE BAR -->
 
         </div> <!--/MAIN CONTAINER -->        
         <!-- CORE JAVASCRIPT LYBRARIES...

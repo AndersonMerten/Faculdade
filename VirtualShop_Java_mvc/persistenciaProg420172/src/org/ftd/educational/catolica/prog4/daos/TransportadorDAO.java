@@ -2,9 +2,9 @@ package org.ftd.educational.catolica.prog4.daos;
 
 import javax.persistence.EntityManagerFactory;
 
-public class FornecedorDAO extends FornecedorJpaController {
+public class TransportadorDAO extends TransportadorJpaController {
 
-    public FornecedorDAO(EntityManagerFactory emf) {
+    public TransportadorDAO(EntityManagerFactory emf) {
         super(emf);
     }
     

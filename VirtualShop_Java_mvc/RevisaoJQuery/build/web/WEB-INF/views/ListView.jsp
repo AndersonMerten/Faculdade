@@ -39,7 +39,7 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="mvccustomer?do=lstmodel">Clientes</a></li>
                         <li><a href="mvcproduto?do=lstmodel">Produtos</a></li>
-                        <li><a href="#">Transportadoras</a></li>
+                        <li><a href="mvctransportador?do=lstmodel">Transportadoras</a></li>
                         <li><a href="#">Pedidos</a></li>
                     </ul>
                 </div>

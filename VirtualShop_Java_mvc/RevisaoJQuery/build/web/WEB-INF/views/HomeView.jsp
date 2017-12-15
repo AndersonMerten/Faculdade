@@ -4,14 +4,14 @@
 <html lang="pt-BR">
     <!-- HEAD -->
     <head>
-        <meta charset="utf-8">
+                <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="${applicationName}">
-        <meta name="author" content="Anderson Iago Merten">
+        <meta name="description" content="${app}">
+        <meta name="author" content="Anderson">
 
         <link rel="icon" href="assets/icons/qb-icon.png">
-        <title>${applicationName} -  ${tittle}</title>
+        <title>${app}</title>
 
         <!-- Bootstrap -->
         <link href="assets/core/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,41 +29,21 @@
               <ul class="nav navbar-nav">
                 <li><a href="mvccustomer?do=lstmodel">Clientes</a></li>
                 <li><a href="mvcproduto?do=lstmodel">Produtos</a></li>
-                <li><a href="#">Transportadoras</a></li>
+                <li><a href="mvctransportador?do=lstmodel">Transportadoras</a></li>
                 <li><a href="#">Pedidos</a></li>
               </ul>
             </div>
         </nav>
          <!-- menu superior -->
-        <div id="main" class="container-fluid"> 
-
-            <!-- SIMPLE MENU BAR -->            
-            <div class="row">
-                <div class="col-md-12">
-                    <jsp:include page="../includes/HeaderMenuInclude.jsp" />
-                </div>
-            </div>
-            <!-- /SIMPLE MENU BAR -->        
-
-            <BR>User: ${userName}<BR><BR>
-
-            <div class="row">
-                <div class="form-group col-md-12">
-                    <label for="comboMenu">Opções:</label>  
-                    <select id="comboMenu" name="comboMenu" size="1">
-                        <option value="#">Selecione uma Opção...</option>
-                        <c:forEach var="o" items="${datasource}">
-                            <option value="${o.url}">${o.name}</option>
-                        </c:forEach>            
-                    </select>  
-                </div>
-                <div class="col-md-12">
-                    <BR><BR><a href="logout">Sair</a>
-                </div>
-
-            </div>  
-            
-            
+         <div class="col-md-6 panel  panel-default"> 
+             <div class="row panel-heading">
+                 Orientações
+             </div>
+             <div class="panel-body">
+            <p>VirtualShop é um painel de controle para negócios genéricos, onde existam clientes, pedidos, produtos, e envios via empresas.
+                Esse sistema serve principalmente para lojas virtuais. Em caso de dúvidas contate o administrador do sistema <a href="https://github.com/AndersonMerten">clicando aqui!</a></p>
+            <p>Caso contrario você pode navegar nos menus acima, cadastrar, visualizar, editar ou deletar os itens. Todas as suas ações serão irreversiveis, portanto tome cuidado!</p>
+         </div>   
         </div><!-- /MAIN CONTAINER --> 
 
         <!-- JQUERY -->                    

@@ -5,12 +5,12 @@
     <class>org.ftd.educational.catolica.prog4.entities.User</class>
     <class>org.ftd.educational.catolica.prog4.entities.Cliente</class>
     <class>org.ftd.educational.catolica.prog4.entities.TipoCliente</class>
-    <class>org.ftd.educational.catolica.prog4.entities.Fornecedor</class>
-    <class>org.ftd.educational.catolica.prog4.daos.FornecedorDAO</class>
-     <class>org.ftd.educational.catolica.prog4.entities.Produto</class>
+    <class>org.ftd.educational.catolica.prog4.entities.Produto</class>
     <class>org.ftd.educational.catolica.prog4.daos.ProdutoDAO</class>
+    <class>org.ftd.educational.catolica.prog4.entities.Transportador</class>
+    <class>org.ftd.educational.catolica.prog4.daos.TransportadorDAO</class>
     <properties>
-       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/prog4?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/prog4?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value="Mafagafino01"/>

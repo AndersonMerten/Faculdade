@@ -10,17 +10,18 @@
 <html lang="pt-BR">
     <!-- HEAD -->
     <head>
-        <meta charset="utf-8">
+         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <meta name="description" content="${applicationName}">
+        <meta name="description" content="Virtual Shop">
         <meta name="author" content="Anderson Iago Merten">
+
         <link rel="icon" href="assets/icons/qb-icon.png">
-        <title>${applicationName} - ${title}</title>
+        <title>Virtual Shop - Visualizar Produto</title>
+
         <!-- Bootstrap -->
+        <link href="assets/css/custom.css" rel="stylesheet">
         <link href="assets/core/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Bootstrap theme -->
         <link href="assets/core/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
     </head><!-- /HEAD -->
@@ -32,11 +33,12 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="mvcmenu?do=lstmodel">VirtualShop</a>
                 </div>
+                
                 <ul class="nav navbar-nav">
-                    <li><a href="mvccustomer?do=lstmodel">Clientes</a></li>
-                    <li><a href="#">Produtos</a></li>
-                    <li><a href="#">Transportadoras</a></li>
-                    <li><a href="#">Pedidos</a></li>
+                        <li class="active"><a href="mvccustomer?do=lstmodel">Clientes</a></li>
+                        <li><a href="mvcproduto?do=lstmodel">Produtos</a></li>
+                        <li><a href="mvctransportador?do=lstmodel">Transportadoras</a></li>
+                        <li><a href="#">Pedidos</a></li>
                 </ul>
             </div>
         </nav>
@@ -57,11 +59,20 @@
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="nameInput">${fieldNameLabel}:</label>
-                        <input type="text" class="form-control" id="nameInput" name="nameInput" max="100" required="required" placeholder="Chave de configuração"
+                        <input type="text" class="form-control" id="nameInput" name="nameInput" max="100" required="required" placeholder="Nome do usuário"
                                value="${entity.name}">
                         <span id="contadorInputName" class="label label-warning">100 Restantes!</span>
                     </div>                  
-                </div><!-- /LINHA-1 -->                            
+                </div>
+                        <!-- /LINHA-2 -->    
+                                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="cpfInput">${entity.cpf}:</label>
+                        <input type="text" class="form-control" id="nameInput" name="cpfInput" max="100" required="required" placeholder="CPF do Usuário"
+                               value="${entity.cpf}">
+                        <span id="contadorInputName" class="label label-warning">100 Restantes!</span>
+                    </div>                  
+                </div> 
 
                 <!-- LINHA-3 : BUTTONS SAVE AND CANCEL -->
                 <div class="row">

@@ -4,7 +4,7 @@ import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import org.ftd.educational.catolica.prog4.daos.ClienteDAO;
-import org.ftd.educational.catolica.prog4.daos.FornecedorDAO;
+import org.ftd.educational.catolica.prog4.daos.TransportadorDAO;
 import org.ftd.educational.catolica.prog4.daos.ProdutoDAO;
 import org.ftd.educational.catolica.prog4.daos.TipoClienteDAO;
 import org.ftd.educational.catolica.prog4.daos.UserDAO;
@@ -20,7 +20,7 @@ public class Init {
     public static void main(String[] args) {
 
         EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-        FornecedorDAO dao = new FornecedorDAO(factory);
+        TransportadorDAO dao = new TransportadorDAO(factory);
        
         userAuthenticateTest("senna@gmail.com", "prostviadinho@soutrimasnaoroubei");
         userAuthenticateTest("prost3@gmail.com", "sennaviadinho@soutetracampeao"); 

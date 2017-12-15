@@ -7,12 +7,11 @@
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="${applicationName}">
-        <meta name="author" content="Anderson Iago Merten">
+        <meta name="description" content="${app}">
+        <meta name="author" content="Fábio Tavares Dippold">
 
         <link rel="icon" href="assets/icons/qb-icon.png">
-        <title>${applicationName} -  ${tittle}</title>
-
+        <title>${app}</title>
         <!-- Bootstrap -->
         <link href="assets/css/custom.css" rel="stylesheet">
         <link href="assets/core/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -27,10 +26,10 @@
                     <a class="navbar-brand" href="mvcmenu?do=lstmodel">VirtualShop</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="mvccustomer?do=lstmodel">Clientes</a></li>
-                    <li><a href="mvcproduto?do=lstmodel">Produtos</a></li>
-                    <li><a href="#">Transportadoras</a></li>
-                    <li><a href="#">Pedidos</a></li>
+                        <li class="active"><a href="mvccustomer?do=lstmodel">Clientes</a></li>
+                        <li><a href="mvcproduto?do=lstmodel">Produtos</a></li>
+                        <li><a href="mvctransportador?do=lstmodel">Transportadoras</a></li>
+                        <li><a href="#">Pedidos</a></li>
                 </ul>
             </div>
         </nav>

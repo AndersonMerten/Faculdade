@@ -1,6 +1,12 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.ftd.builderforce.ppm.web.cmds;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -11,21 +17,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.ftd.builderforce.ppm.web.adapters.PersistenceFactory;
-import org.ftd.educational.catolica.prog4.daos.ClienteDAO;
-import org.ftd.educational.catolica.prog4.daos.UserDAO;
-import org.ftd.educational.catolica.prog4.entities.Cliente;
-import org.ftd.educational.catolica.prog4.entities.User;
+import org.ftd.educational.catolica.prog4.daos.TransportadorDAO;
+import org.ftd.educational.catolica.prog4.entities.Transportador;
 
 /**
  *
- * @author ftdippold
+ * @author Anderson
  */
-@WebServlet(name = "CustomerMvcServlet", urlPatterns = {"/mvccustomer"}, initParams = {
+
+@WebServlet(name = "TrasnportadorMvcServlet", urlPatterns = {"/mvctransportador"}, initParams = {
     @WebInitParam(name = "do", value = "")})
-
-public class CustomerMvcServlet extends HttpServlet {
-
-    private static final long serialVersionUID = -1587237767624179860L;
+public class TransportadorMvcServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,7 +40,7 @@ public class CustomerMvcServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
+         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         String action = this.readParameter(request, "do");
         String nextAction;
@@ -71,30 +73,29 @@ public class CustomerMvcServlet extends HttpServlet {
 
         request.getRequestDispatcher(nextAction).forward(request, response);
     }
-
     private String buildLstModel(HttpServletRequest request, HttpServletResponse response) {        
-        String nextAction = "/WEB-INF/views/ListView.jsp";
-        request.setAttribute("applicationName","Trabalho de Programação 4");
-        request.setAttribute("title","Cadastro de Clientes");
+        String nextAction = "/WEB-INF/views/Transportador/ListTransportadorView.jsp";
+        request.setAttribute("applicationName","Virtual Shop");
+        request.setAttribute("title","Cadastro de Transportadoras");
         
         request.setAttribute("userName", (String) request.getSession().getAttribute("username"));
         request.setAttribute("datasource", this.findAll());        
         request.setAttribute("showColumnId", true);        
         
-        request.setAttribute("actionToAdd", "mvccustomer?do=addmodel");
-        request.setAttribute("actionToUpd", "mvccustomer?do=updmodel&id=");
-        request.setAttribute("actionToRead", "mvccustomer?do=readmodel&id=");
+        request.setAttribute("actionToAdd", "mvctransportador?do=addmodel");
+        request.setAttribute("actionToUpd", "mvctransportador?do=updmodel&id=");
+        request.setAttribute("actionToRead", "mvctransportador?do=readmodel&id=");
         
         return nextAction;
     }
 
     private String buildAddModel(HttpServletRequest request, HttpServletResponse response) {
-        String nextAction = "/WEB-INF/views/IdNameCreateView.jsp";
+        String nextAction = "/WEB-INF/views/Transportador/CreateTransportadorView.jsp";
 
-        request.setAttribute("applicationName","Trabalho de Programação 4");
-        request.setAttribute("title","Adicionando Novo Cliente");
+        request.setAttribute("applicationName","Virtual Shop");
+        request.setAttribute("title","Adicionando Novo Transportador");
         
-        request.setAttribute("controller","mvccustomer");
+        request.setAttribute("controller","mvctransportador");
         request.setAttribute("do","add");
         request.setAttribute("fieldNameLabel","Nome");
         
@@ -102,46 +103,48 @@ public class CustomerMvcServlet extends HttpServlet {
     }
 
     private String buildUpdModel(HttpServletRequest request, HttpServletResponse response) {
-        String nextAction = "/WEB-INF/views/IdNameUpdateView.jsp";
+        String nextAction = "/WEB-INF/views/Transportador/UpdateTransportadorView.jsp";
         String id = this.readParameter(request, "id");
 
-        request.setAttribute("applicationName","Trabalho de Programação 4");
-        request.setAttribute("title","Atualizando o Cliente " + id);
+        request.setAttribute("applicationName","Virtual Shop");
+        request.setAttribute("title","Atualizando o Transportador " + id);
         
-        request.setAttribute("controller","mvccustomer");
+        request.setAttribute("controller","mvctransportador");
         request.setAttribute("do","upd");
         request.setAttribute("fieldNameLabel","Nome");        
         
         final String PERSISTENCE_UNIT_NAME = "persistenciaPU";
         EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-        ClienteDAO dao = new ClienteDAO(factory);
+        TransportadorDAO dao = new TransportadorDAO(factory);
         
-        request.setAttribute("entity",dao.findCliente(Long.parseLong(id)));
+        request.setAttribute("entity",dao.findTransportador(Long.parseLong(id)));
         
         
         return nextAction;
     }
 
     private String buildReadModel(HttpServletRequest request, HttpServletResponse response) {
-         String nextAction = "/WEB-INF/views/ReadUserView.jsp";
+         String nextAction = "/WEB-INF/views/Transportador/ReadTransportadorView.jsp";
         String id = this.readParameter(request, "id");
 
-        ClienteDAO cliente = new ClienteDAO(PersistenceFactory.getFactoryInstance());
-        request.setAttribute("datasource", cliente.findCliente(Long.parseLong(id)));
+        TransportadorDAO transportador = new TransportadorDAO(PersistenceFactory.getFactoryInstance());
+        request.setAttribute("datasource", transportador.findTransportador(Long.parseLong(id)));
         return nextAction;
     }
 
     private String doAddNew(HttpServletRequest request, HttpServletResponse response) {
-        String successNextAction = "mvccustomer?do=lstmodel";
-        String failureNextAction = "mvccustomer?do=addmodel";
+        String successNextAction = "mvctransportador?do=lstmodel";
+        String failureNextAction = "mvctransportador?do=addmodel";
 
         final String PERSISTENCE_UNIT_NAME = "persistenciaPU";
         EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-        ClienteDAO dao = new ClienteDAO(factory);
-        Cliente o = new Cliente();
+        TransportadorDAO dao = new TransportadorDAO(factory);
+        Transportador o = new Transportador();
         
         o.setName(this.readParameter(request, "nameInput"));
-        o.setCpf("6.. " + o.getName());
+        o.setCnpj(this.readParameter(request, "descricaoInput"));
+        
+       
         
         try {
             dao.create(o);
@@ -158,16 +161,16 @@ public class CustomerMvcServlet extends HttpServlet {
     private String doUpdate(HttpServletRequest request, HttpServletResponse response) {
         String id = this.readParameter(request, "id");
         
-        String successNextAction = "mvccustomer?do=lstmodel";
-        String failureNextAction = "mvccustomer?do=updmodel";
+        String successNextAction = "mvctransportador?do=lstmodel";
+        String failureNextAction = "mvctransportador?do=updmodel";
 
         final String PERSISTENCE_UNIT_NAME = "persistenciaPU";
         EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-        ClienteDAO dao = new ClienteDAO(factory);                      
-        Cliente o = dao.findCliente(Long.parseLong(id));
+        TransportadorDAO dao = new TransportadorDAO(factory);                      
+        Transportador o = dao.findTransportador(Long.parseLong(id));
         o.setName(this.readParameter(request, "nameInput"));
-        o.setCpf(this.readParameter(request, "cpfInput"));
-                
+        o.setCnpj(this.readParameter(request, "descricaoInput"));
+        
         try {
             dao.edit(o);
             
@@ -181,14 +184,14 @@ public class CustomerMvcServlet extends HttpServlet {
 
     private String doRemove(HttpServletRequest request, HttpServletResponse response) {
         String id = this.readParameter(request, "id");
-        ClienteDAO cliente = new ClienteDAO(PersistenceFactory.getFactoryInstance());
-        request.setAttribute("datasource", cliente.findCliente(Long.parseLong(id)));
+        TransportadorDAO transportador = new TransportadorDAO(PersistenceFactory.getFactoryInstance());
+        request.setAttribute("datasource", transportador.findTransportador(Long.parseLong(id)));
         try{
-            cliente.destroy(Long.parseLong(id));
+            transportador.destroy(Long.parseLong(id));
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-        String successNextAction = "mvccustomer?do=lstmodel";
+        String successNextAction = "mvctransportador?do=lstmodel";
 
         return successNextAction;
     }
@@ -206,15 +209,13 @@ public class CustomerMvcServlet extends HttpServlet {
         return value;
     }
 
-    private List<Cliente> findAll() {
+    private List<Transportador> findAll() {
         final String PERSISTENCE_UNIT_NAME = "persistenciaPU";
         EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-        ClienteDAO dao = new ClienteDAO(factory);
+        TransportadorDAO dao = new TransportadorDAO(factory);
         
-        return dao.findClienteEntities();
+        return dao.findTransportadorEntities();
     }
-    
-    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -253,5 +254,6 @@ public class CustomerMvcServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 
 }
