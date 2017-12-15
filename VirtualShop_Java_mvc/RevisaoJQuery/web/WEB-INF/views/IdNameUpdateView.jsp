@@ -61,7 +61,7 @@
                         <label for="nameInput">${fieldNameLabel}:</label>
                         <input type="text" class="form-control" id="nameInput" name="nameInput" max="100" required="required" placeholder="Nome do usuário"
                                value="${entity.name}">
-                        <span id="contadorInputName" class="label label-warning">100 Restantes!</span>
+                        
                     </div>                  
                 </div>
                         <!-- /LINHA-2 -->    
@@ -70,7 +70,6 @@
                         <label for="cpfInput">${entity.cpf}:</label>
                         <input type="text" class="form-control" id="nameInput" name="cpfInput" max="100" required="required" placeholder="CPF do Usuário"
                                value="${entity.cpf}">
-                        <span id="contadorInputName" class="label label-warning">100 Restantes!</span>
                     </div>                  
                 </div> 
 

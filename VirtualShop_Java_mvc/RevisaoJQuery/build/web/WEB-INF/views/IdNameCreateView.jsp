@@ -56,8 +56,14 @@
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="nameInput">${fieldNameLabel}:</label>
-                        <input type="text" class="form-control" id="nameInput" name="nameInput" max="100" required="required" placeholder="Chave de configuração">
-                        <span id="contadorInputName" class="label label-warning">100 Restantes!</span>
+                        <input type="text" class="form-control" id="nameInput" name="nameInput" max="100" required="required" placeholder="Nome do Usuário">
+                        </div>        
+                    </div>
+                        <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="cpfInput">CPF:</label>
+                        <input type="text" class="form-control" id="nameInput" name="cpfInput" max="100" required="required" placeholder="CPF do usuário">
+
                     </div>
                    
                 </div><!-- /LINHA-1 -->           

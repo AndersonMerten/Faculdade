@@ -141,7 +141,8 @@ public class CustomerMvcServlet extends HttpServlet {
         Cliente o = new Cliente();
         
         o.setName(this.readParameter(request, "nameInput"));
-        o.setCpf("6.. " + o.getName());
+        o.setCpf(this.readParameter(request, "cpfInput"));
+        o.setTipoClienteid(Long.parseLong("2"));
         
         try {
             dao.create(o);
